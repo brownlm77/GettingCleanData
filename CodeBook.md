@@ -1,6 +1,5 @@
 run_analysis.R
 ===============
-
 The R file, run_analysis.R, provides a script for processing (anlayzing) 
 data from: 
  
@@ -54,82 +53,72 @@ changed from the original my removing all punctuation and changing to lowers cas
 as given in the following mapping. Furthermore, for the output of feature means, 
 the labels are each proceeded by an 'm'. 
 
-- tBodyAcc-mean()-X            -->  tbodyaccmeanx 
-- tBodyAcc-mean()-Y            -->  tbodyaccmeany 
-- tBodyAcc-mean()-Z            -->  tbodyaccmeanz 
-tBodyAcc-std()-X             -->  tbodyaccstdx
-tBodyAcc-std()-Y             -->  tbodyaccstdy
-tBodyAcc-std()-Z             -->  tbodyaccstdz
-tGravityAcc-mean()-X         -->  tgravityaccmeanx
-tGravityAcc-mean()-Y         -->  tgravityaccmeany
-tGravityAcc-mean()-Z         -->  tgravityaccmeanz
-tGravityAcc-std()-X          -->  tgravityaccstdx
-tGravityAcc-std()-Y          -->  tgravityaccstdy
-tGravityAcc-std()-Z          -->  tgravityaccstdz
-tBodyAccJerk-mean()-X        -->  tbodyaccjerkmeanx
-tBodyAccJerk-mean()-Y        -->  tbodyaccjerkmeany
-tBodyAccJerk-mean()-Z        -->  tbodyaccjerkmeanz
-tBodyAccJerk-std()-X         -->  tbodyaccjerkstdx
-tBodyAccJerk-std()-Y         -->  tbodyaccjerkstdy
-tBodyAccJerk-std()-Z         -->  tbodyaccjerkstdz
-tBodyGyro-mean()-X           -->  tbodygyromeanx
-tBodyGyro-mean()-Y           -->  tbodygyromeany
-tBodyGyro-mean()-Z           -->  tbodygyromeanz
-tBodyGyro-std()-X            -->  tbodygyrostdx
-tBodyGyro-std()-Y            -->  tbodygyrostdy
-tBodyGyro-std()-Z            -->  tbodygyrostdz
-tBodyGyroJerk-mean()-X       -->  tbodygyrojerkmeanx
-tBodyGyroJerk-mean()-Y       -->  tbodygyrojerkmeany
-tBodyGyroJerk-mean()-Z       -->  tbodygyrojerkmeanz
-tBodyGyroJerk-std()-X        -->  tbodygyrojerkstdx
-tBodyGyroJerk-std()-Y        -->  tbodygyrojerkstdy
-tBodyGyroJerk-std()-Z        -->  tbodygyrojerkstdz
-tBodyAccMag-mean()           -->  tbodyaccmagmean
-tBodyAccMag-std()            -->  tbodyaccmagstd
-tGravityAccMag-mean()        -->  tgravityaccmagmean
-tGravityAccMag-std()         -->  tgravityaccmagstd
-tBodyAccJerkMag-mean()       -->  tbodyaccjerkmagmean
-tBodyAccJerkMag-std()        -->  tbodyaccjerkmagstd
-tBodyGyroMag-mean()          -->  tbodygyromagmean
-tBodyGyroMag-std()           -->  tbodygyromagstd
-tBodyGyroJerkMag-mean()      -->  tbodygyrojerkmagmean
-tBodyGyroJerkMag-std()       -->  tbodygyrojerkmagstd
-fBodyAcc-mean()-X            -->  fbodyaccmeanx
-fBodyAcc-mean()-Y            -->  fbodyaccmeany
-fBodyAcc-mean()-Z            -->  fbodyaccmeanz
-fBodyAcc-std()-X             -->  fbodyaccstdx
-fBodyAcc-std()-Y             -->  fbodyaccstdy
-fBodyAcc-std()-Z             -->  fbodyaccstdz
-fBodyAccJerk-mean()-X        -->  fbodyaccjerkmeanx
-fBodyAccJerk-mean()-Y        -->  fbodyaccjerkmeany
-fBodyAccJerk-mean()-Z        -->  fbodyaccjerkmeanz
-fBodyAccJerk-std()-X         -->  fbodyaccjerkstdx
-fBodyAccJerk-std()-Y         -->  fbodyaccjerkstdy
-fBodyAccJerk-std()-Z         -->  fbodyaccjerkstdz
-fBodyGyro-mean()-X           -->  fbodygyromeanx
-fBodyGyro-mean()-Y           -->  fbodygyromeany
-fBodyGyro-mean()-Z           -->  fbodygyromeanz
-fBodyGyro-std()-X            -->  fbodygyrostdx
-fBodyGyro-std()-Y            -->  fbodygyrostdy
-fBodyGyro-std()-Z            -->  fbodygyrostdz
-fBodyAccMag-mean()           -->  fbodyaccmagmean
-fBodyAccMag-std()            -->  fbodyaccmagstd
-fBodyBodyAccJerkMag-mean()   -->  fbodybodyaccjerkmagmean
-fBodyBodyAccJerkMag-std()    -->  fbodybodyaccjerkmagstd
-fBodyBodyGyroMag-mean()      -->  fbodybodygyromagmean
-fBodyBodyGyroMag-std()       -->  fbodybodygyromagstd
-fBodyBodyGyroJerkMag-mean()  -->  fbodybodygyrojerkmagmean
-fBodyBodyGyroJerkMag-std()   -->  fbodybodygyrojerkmagstd
-
-
-
-
-
-
-
-
-
-
-
-
+| Original       | Modified     | 
+| :------------- | :----------: | 
+| tBodyAcc-mean()-X            | tbodyaccmeanx |
+| tBodyAcc-mean()-Y            | tbodyaccmeany |
+| tBodyAcc-mean()-Z            |  tbodyaccmeanz | 
+| tBodyAcc-std()-X             |  tbodyaccstdx |
+| tBodyAcc-std()-Y             |  tbodyaccstdy |
+| tBodyAcc-std()-Z             |  tbodyaccstdz |
+| tGravityAcc-mean()-X         |  tgravityaccmeanx |
+| tGravityAcc-mean()-Y         |  tgravityaccmeany |
+| tGravityAcc-mean()-Z         |  tgravityaccmeanz |
+| tGravityAcc-std()-X          |  tgravityaccstdx |
+| tGravityAcc-std()-Y          |  tgravityaccstdy |
+| tGravityAcc-std()-Z          |  tgravityaccstdz |
+| tBodyAccJerk-mean()-X        |  tbodyaccjerkmeanx | 
+| tBodyAccJerk-mean()-Y        |  tbodyaccjerkmeany | 
+| tBodyAccJerk-mean()-Z        |  tbodyaccjerkmeanz | 
+| tBodyAccJerk-std()-X         |  tbodyaccjerkstdx | 
+| tBodyAccJerk-std()-Y         |  tbodyaccjerkstdy | 
+| tBodyAccJerk-std()-Z         |  tbodyaccjerkstdz | 
+| tBodyGyro-mean()-X           |  tbodygyromeanx | 
+| tBodyGyro-mean()-Y           |  tbodygyromeany | 
+| tBodyGyro-mean()-Z           |  tbodygyromeanz | 
+| tBodyGyro-std()-X            |  tbodygyrostdx | 
+| tBodyGyro-std()-Y            |  tbodygyrostdy | 
+| tBodyGyro-std()-Z            |  tbodygyrostdz | 
+| tBodyGyroJerk-mean()-X       |  tbodygyrojerkmeanx | 
+| tBodyGyroJerk-mean()-Y       |  tbodygyrojerkmeany | 
+| tBodyGyroJerk-mean()-Z       |  tbodygyrojerkmeanz | 
+| tBodyGyroJerk-std()-X        |  tbodygyrojerkstdx | 
+| tBodyGyroJerk-std()-Y        |  tbodygyrojerkstdy  | 
+| tBodyGyroJerk-std()-Z        |  tbodygyrojerkstdz | 
+| tBodyAccMag-mean()           |  tbodyaccmagmean | 
+| tBodyAccMag-std()            |  tbodyaccmagstd | 
+| tGravityAccMag-mean()        |  tgravityaccmagmean | 
+| tGravityAccMag-std()         |  tgravityaccmagstd | 
+| tBodyAccJerkMag-mean()       |  tbodyaccjerkmagmean | 
+| tBodyAccJerkMag-std()        |  tbodyaccjerkmagstd | 
+| tBodyGyroMag-mean()          |  tbodygyromagmean | 
+| tBodyGyroMag-std()           |  tbodygyromagstd | 
+| tBodyGyroJerkMag-mean()      |  tbodygyrojerkmagmean | 
+| tBodyGyroJerkMag-std()       |  tbodygyrojerkmagstd | 
+| fBodyAcc-mean()-X            |  fbodyaccmeanx | 
+| fBodyAcc-mean()-Y            |  fbodyaccmeany | 
+| fBodyAcc-mean()-Z            |  fbodyaccmeanz | 
+| fBodyAcc-std()-X             |  fbodyaccstdx | 
+| fBodyAcc-std()-Y             |  fbodyaccstdy | 
+| fBodyAcc-std()-Z             |  fbodyaccstdz | 
+| fBodyAccJerk-mean()-X        |  fbodyaccjerkmeanx | 
+| fBodyAccJerk-mean()-Y        |  fbodyaccjerkmeany | 
+| fBodyAccJerk-mean()-Z        |  fbodyaccjerkmeanz | 
+| fBodyAccJerk-std()-X         |  fbodyaccjerkstdx | 
+| fBodyAccJerk-std()-Y         |  fbodyaccjerkstdy | 
+| fBodyAccJerk-std()-Z         |  fbodyaccjerkstdz | 
+| fBodyGyro-mean()-X           |  fbodygyromeanx | 
+| fBodyGyro-mean()-Y           |  fbodygyromeany | 
+| fBodyGyro-mean()-Z           |  fbodygyromeanz | 
+| fBodyGyro-std()-X            |  fbodygyrostdx | 
+| fBodyGyro-std()-Y            |  fbodygyrostdy | 
+| fBodyGyro-std()-Z            |  fbodygyrostdz | 
+| fBodyAccMag-mean()           |  fbodyaccmagmean | 
+| fBodyAccMag-std()            |  fbodyaccmagstd | 
+| fBodyBodyAccJerkMag-mean()   |  fbodybodyaccjerkmagmean | 
+| fBodyBodyAccJerkMag-std()    |  fbodybodyaccjerkmagstd | 
+| fBodyBodyGyroMag-mean()      |  fbodybodygyromagmean | 
+| fBodyBodyGyroMag-std()       |  fbodybodygyromagstd | 
+| fBodyBodyGyroJerkMag-mean()  |  fbodybodygyrojerkmagmean | 
+| fBodyBodyGyroJerkMag-std()   |  fbodybodygyrojerkmagstd | 
 
