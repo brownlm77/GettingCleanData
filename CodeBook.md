@@ -1,4 +1,4 @@
-##run_analysis.R
+run_analysis.R
 ===============
 
 The R file, run_analysis.R, provides a script for processing (anlayzing) 
@@ -23,7 +23,7 @@ These scripts can perform the following actions:
 4. Adds subject information to the data set. 
 5. Adds activity information for each subject to the data set.  
 
-###Files
+Files
 ==================
 
 The dataset using the following input files:
@@ -42,10 +42,8 @@ And produces two output files:
 - 'analysis.txt':  Combined train and test data for features analyzed. 
 - 'mean_analysis.txt'  Mean of features summarized by activity and subject. 
 
-###Notes
+Notes
 ===========================
-
-Notes:
 
 The output files are comma-separated text, containing a single header row with the 
 column labels. In both output files, the subject id is the first column and the 
@@ -56,9 +54,9 @@ changed from the original my removing all punctuation and changing to lowers cas
 as given in the following mapping. Furthermore, for the output of feature means, 
 the labels are each proceeded by an 'm'. 
 
-tBodyAcc-mean()-X            -->  tbodyaccmeanx
-tBodyAcc-mean()-Y            -->  tbodyaccmeany
-tBodyAcc-mean()-Z            -->  tbodyaccmeanz
+- tBodyAcc-mean()-X            -->  tbodyaccmeanx 
+- tBodyAcc-mean()-Y            -->  tbodyaccmeany 
+- tBodyAcc-mean()-Z            -->  tbodyaccmeanz 
 tBodyAcc-std()-X             -->  tbodyaccstdx
 tBodyAcc-std()-Y             -->  tbodyaccstdy
 tBodyAcc-std()-Z             -->  tbodyaccstdz
