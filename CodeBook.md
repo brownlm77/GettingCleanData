@@ -50,8 +50,8 @@ second column is Smartphone activity.
 
 To support software programming (tidy variable names), the features names were 
 changed from the original my removing all punctuation and changing to lowers case,
-as given in the following mapping. Furthermore, for the output of feature means, 
-the labels are each proceeded by an 'm'. 
+as given in the following table. Furthermore, for the feature means output file, 
+the column labels were each proceeded by an 'm'. 
 
 | Original       | Modified     | 
 | :------------- | :----------: | 
