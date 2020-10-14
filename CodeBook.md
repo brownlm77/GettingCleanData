@@ -33,8 +33,8 @@ The dataset using the following input files:
 - 'train/y_train.txt': Training labels.
 - 'test/X_test.txt': Test set.
 - 'test/y_test.txt': Test labels.
-- 'train/subject_train.txt': Each row identifies the subject who 
-performed the activity for each window sample and ranges from 1 to 30. 
+- 'train/subject_train.txt', test/subject_test.txt: Each row identifies the subject who 
+performed the activity for each window sample and ranges from 1 to 30.  
 
 And produces two output files:
 
@@ -48,10 +48,24 @@ The output files are comma-separated text, containing a single header row with t
 column labels. In both output files, the subject id is the first column and the 
 second column is Smartphone activity. 
 
-To support software programming (tidy variable names), the features names were 
-changed from the original my removing all punctuation and changing to lowers case,
-as given in the following table. Furthermore, for the feature means output file, 
-the column labels were each proceeded by an 'm'. 
+To produce the output file, analysis.txt:
+
+1. The test set, X_test.txt was appended to end of (after) the train set, X_train.txt
+2. The the column labels were assigned to the data from features.txt
+3. To support tidy data, the features names were changed from the original my removing all punctuation and changing to lowers case
+4. The columns were dropped that didn't have a match for mean() or std() in the column name
+5. The activities from y_test.txt was appended to end of (after) the subjects in y_train.txt
+6. The activities numbers were converted to labels using activity_labels.txt and added as the first column of the data set
+7. The subjects in file y_test.txt was appended to the subjects in y_train.txt and added as the first column of the data set
+
+To produce the output file, mean_analysis.txt:
+
+1. The data set for analysis.txt was grouped by subject and activity, and the means of the feature calculated
+2. The letter 'm' was added to the beginning of each feature name to indicate mean 
+
+
+Following is the modification of the original feature labels to tidy feature labels
+
 
 | Original       | Modified     | 
 | :------------- | :----------: | 
@@ -121,4 +135,3 @@ the column labels were each proceeded by an 'm'.
 | fBodyBodyGyroMag-std()       |  fbodybodygyromagstd | 
 | fBodyBodyGyroJerkMag-mean()  |  fbodybodygyrojerkmagmean | 
 | fBodyBodyGyroJerkMag-std()   |  fbodybodygyrojerkmagstd | 
-
