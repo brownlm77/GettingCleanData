@@ -1,4 +1,4 @@
- ## run_analysis.R
+ # run_analysis.R
 
   Author:  Lawrence Brown
   Date:    11 Oct 2020
@@ -14,34 +14,36 @@
   http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
 
-##  tidyColumnNames
+###  tidyColumnNames
 
-###  Data Output
+####  Data Output
 
 `tidyColumnNames` takes a vector of character strings and returns the vector with all the punctuation removed from each string
   
-###  Usage
+####  Usage
 >`tidyColumnNames(colNames)`
 
-### Arguments 
+#### Arguments 
 **colNames**	a vector of character strings
 
-###  Details 
+####  Details 
 Removes the following characters:
 ! ' # S % & ' ( ) * + , - . / : ; < = > ? @ [ / ] ^ _ { | } ~
 
 
-##  getActivityLabels
+###  getActivityLabels
 `getActivityLabels` reads the activity labels from a file and returns as a data frame of activities. 
 
+```
 1 WALKING
 2 WALKING_UPSTAIRS
 3 WALKING_DOWNSTAIRS
 4 SITTING
 5 STANDING
 6 LAYING
+```
 
-### Arguments
+#### Arguments
 >  fname   name of file to read with activity labels, e.g. activity_labels.txt
 
 #  extractColumns
