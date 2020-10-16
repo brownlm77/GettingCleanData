@@ -1,18 +1,19 @@
- # run_analysis.R
+# run_analysis.R
 
-  Author:  Lawrence Brown
-  Date:    11 Oct 2020
+Author:  Lawrence Brown
+Date:    11 Oct 2020
 
-  Scripts for processing data from:
-  Human Activity Recognition Using Smartphones Dataset
-  Version 1.0
+Scripts for processing data from:
+Human Activity Recognition Using Smartphones Dataset
+Version 1.0
 
-  Source data for the scripts:
-  https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+Source data for the scripts:
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
-  A full description is available at the site where the data was obtained:
-  http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+A full description is available at the site where the data was obtained:
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
+See CodeBook.md for details on processed data from these scripts.
 
 ### tidyColumnNames
 
@@ -20,7 +21,9 @@
 `tidyColumnNames` takes a vector of character strings and returns the vector with all the punctuation removed from each string
   
 #### Usage
->`tidyColumnNames(colNames)`
+```
+tidyColumnNames(colNames)
+```
 
 #### Arguments 
 **colNames** - A vector of character strings
