@@ -54,9 +54,10 @@ Removes the following characters:
 `extractColumns` subset data frame to extract only those columns specified by a regex search string on the column names    
 
 #### Usage
->`extractColumns(searchString, dataFrame)`
-
->`extractColumns(searchString = "mean", dataFrame)`
+```
+extractColumns(searchString, dataFrame)
+extractColumns(searchString = "mean", dataFrame)
+```
   
 #### Arguments 
 **searchString** - String defining search criteria identifying columns to return, e.g., "[mean()|std()]"
@@ -72,8 +73,10 @@ Format for regex is perl.
 `addSubjectData` adds the subject information from both the train and test groups in a returned data frame.  Returns original data frame with subject data added as first column.
   
 #### Usage
->`addSubjectData(fname_train, fname_test, dataFrame, nrow = 20)`
->`addSubjectData(fname_train, fname_test, dataFrame)`
+```
+addSubjectData(fname_train, fname_test, dataFrame, nrow = 20) 
+addSubjectData(fname_train, fname_test, dataFrame)
+```
   
 #### Arguments
 **nrow** - Number of rows to read from input files. Default is -1 (all rows). 
@@ -88,19 +91,21 @@ Subject id data is added as the first column of the data frame with column name 
 training and test groups. Returns the original data frame with activity data added as first column.
 
 #### Usage
-> `addActivityData(fname_train, fname_test, fname_activity, dataFrame, nrow = 20)`
-> `addActivityData(fname_train, fname_test, fname_activity, dataFrame)`
+```
+addActivityData(fname_train, fname_test, fname_activity, dataFrame, nrow = 20) 
+addActivityData(fname_train, fname_test, fname_activity, dataFrame)
+```
 
 #### Arguments
 **fname_train**     Training set of activities, e.g. "y_train.txt"
  
 **fname_test**      Test set of activities, e.g., "y_test.txt"
 
-**fname_activity**  Activity labels that map from an acitivity id (1, 2, 3,...)                     to a meaningful label (WALKING, WALKING_UPSTAIRS)
+**fname_activity** - Activity labels that map from an acitivity id (1, 2, 3,...) to a meaningful label (WALKING, WALKING_UPSTAIRS)
 
-**dataFrame**       Nata frame in which to add activity information
+**dataFrame** - Data frame in which to add activity information
 
-**nrow**            Number of rows to read from input files.  Default is -1 (all rows). 
+**nrow** - Number of rows to read from input files.  Default is -1 (all rows). 
 
 #### Details
 Activity is added to the first column of the provided data frame with column name 'activity'.  The activities are converted to categories (factors).  
@@ -144,9 +149,10 @@ The column name for the features are modified by adding 'm' to the beginning of 
 `getData` retrieves the training data and testing data as a data frame, appending the test data after the train data. 
 
 #### Usage
->`getData(fname_train, fname_test, nrow = 20)`
-
->`getData(fname_train, fname_test)`
+```
+getData(fname_train, fname_test, nrow = 20) 
+getData(fname_train, fname_test)
+```
 
 #### Arguments 
 **fname_train** - Training file data
@@ -161,8 +167,10 @@ The column name for the features are modified by adding 'm' to the beginning of 
 `readData`  Reads a text file of data and returns the result as a data frame. 
 
 #### Usage
->`readData(fname, header = TRUE, nrow = 20)`
->`readData(fname)`
+```
+readData(fname, header = TRUE, nrow = 20) 
+readData(fname)
+```
 
 #### Arguments
 **fname** - Text file to read
@@ -195,9 +203,12 @@ The data is written comma separated.  Column names are written to the file, but 
 
 #### Usage
 ```
->buildDataFrame(fname_colnames, fname_activityLabels, fname_train, fname_test, fname_trainActivity, >               fname_testActivity, fname_trainSubject, fname_testSubject, 
->               strexp = "mean", nrow=20) 
->buildDataFrame(fname_colnames, fname_activityLabels, fname_train, fname_test, fname_trainActivity, >               fname_testActivity, fname_trainSubject, fname_testSubject)
+buildDataFrame(fname_colnames, fname_activityLabels, fname_train, fname_test, 
+               fname_trainActivity, fname_testActivity, fname_trainSubject, 
+               fname_testSubject, strexp = "mean", nrow=20) 
+buildDataFrame(fname_colnames, fname_activityLabels, fname_train, fname_test, 
+               fname_trainActivity, fname_testActivity, fname_trainSubject, 
+               fname_testSubject)
 ```
 
 #### Arguments 
