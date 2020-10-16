@@ -43,7 +43,9 @@ Removes the following characters:
 6 LAYING
 ```
 #### Usage
->`getActivityLabels(fname)`
+```
+getActivityLabels(fname)
+```
 
 #### Arguments
 **fname** - Name of file to read with activity labels, e.g. `activity_labels.txt`
@@ -116,7 +118,9 @@ Activity is added to the first column of the provided data frame with column nam
 `addColumnNames` sets the column names for all the features in the data frame. Returns the original data frame with column names set base on information in the features file. 
 
 #### Usage
->`addColumnNames(fname, dataFrame)`
+```
+addColumnNames(fname, dataFrame)
+```
 
 #### Arguments
 
@@ -134,7 +138,9 @@ Assumes that the data frame is the raw data, such that 1st column in the  data f
 `buildAveFeatureDataFrame` builds a data frame that summarizes the mean features for each individual based on activity. Returns a new data frame with features means grouped by individual and activity. 
   
 #### Usage
->`buildAveFeatureDataFrame(dataFrame)`
+```
+buildAveFeatureDataFrame(dataFrame)
+```
 
 #### Arguments
 
@@ -164,7 +170,7 @@ getData(fname_train, fname_test)
 ### readData 
 
 #### Data Output 
-`readData`  Reads a text file of data and returns the result as a data frame. 
+`readData` reads a text file of data and returns the result as a data frame. 
 
 #### Usage
 ```
@@ -185,7 +191,9 @@ readData(fname)
 `writeData`  Writes a data frame to an output file as text. 
 
 #### Usage
->`writeData(df, fname)` 
+```
+writeData(df, fname)
+```
 
 #### Arguments
 
