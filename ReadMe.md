@@ -14,25 +14,25 @@
   http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
 
-###  tidyColumnNames
+### tidyColumnNames
 
-####  Data Output
-
+#### Data Output
 `tidyColumnNames` takes a vector of character strings and returns the vector with all the punctuation removed from each string
   
-####  Usage
+#### Usage
 >`tidyColumnNames(colNames)`
 
 #### Arguments 
-**colNames**	a vector of character strings
+**colNames**	  a vector of character strings
 
-####  Details 
+#### Details 
 Removes the following characters:
 ! ' # S % & ' ( ) * + , - . / : ; < = > ? @ [ / ] ^ _ { | } ~
 
-
 ###  getActivityLabels
-`getActivityLabels` reads the activity labels from a file and returns as a data frame of activities. 
+
+#### Data Output
+``getActivityLabels` reads the activity labels from a file and returns as a data frame of activities. 
 
 ```
 1 WALKING
@@ -42,81 +42,66 @@ Removes the following characters:
 5 STANDING
 6 LAYING
 ```
+#### Usage
+>`getActivityLabels(fname)`
 
 #### Arguments
->  fname   name of file to read with activity labels, e.g. activity_labels.txt
+**fname**   name of file to read with activity labels, e.g. `activity_labels.txt`
 
-#  extractColumns
+### extractColumns
 
-  Subset data frame to extract only those columns specified
-  by a regex search string on the column names.    
+#### Data Output
+`extractColumns` subset data frame to extract only those columns specified by a regex search string on the column names    
+
+#### Usage
+>`extractColumns(searchString, dataFrame)`
+>`extractColumns(searchString = "mean", dataFrame)`
   
-  Arguments: 
+#### Arguments: 
+**searchString**  string defining search criteria identifying columns to return, e.g., "[mean()|std()]"
 
-     searchString    string defining search criteria identifying
-                     columns to return, e.g., "[mean()|std()]"
+**dataFrame**      data frame in which to extract columns
 
-     dataFrame       data frame in which to extract columns
-
-  Returns: data frame of on only columns specified
-
-  Details:
-
-  Format for regex is perl. 
+#### Details
+Format for regex is perl. 
 
 
-#  addSubjectData 
+### addSubjectData 
 
-  Adds the subject information from both the train and test groups
-  to the data frame.    
+`addSubjectData` adds the subject information from both the train and test groups in a returned data frame.  Returns original data frame with subject data added as first column.
   
-  Arguments: 
+#### Usage
+>`addSubjectData(fname_train, fname_test, dataFrame, nrow = 20)`
+>`addSubjectData(fname_train, fname_test, dataFrame)`
+  
+#### Arguments
+**nrow**            Number of rows to read from input files. Default is -1 (all rows). 
 
-     fname_train     Training set of subject ids, e.g. "subject_train.txt"
+#### Details
+Subject id data is added as the first column of the data frame with column name 'subject'
+
+### addActivityData 
+
+#### Usage
+`addActivityData` adds the training activities for each subject from both the 
+training and test groups. Returns the original data frame with activity data added as first column.
+  
+#### Arguments
+**fname_train**     Training set of activities, e.g. "y_train.txt"
  
-     fname_test      Test set of subject ids, e.g., "subject_test.txt"
+**fname_test**      Test set of activities, e.g., "y_test.txt"
 
-     dataFrame       data frame in which to add subject information
+**fname_activity**  Activity labels that map from an acitivity id (1, 2, 3,...)                     to a meaningful label (WALKING, WALKING_UPSTAIRS)
 
-     nrow            number of rows to read from input files
+**dataFrame**       Nata frame in which to add activity information
 
-  Returns: original data frame with subject data added as first column
+**nrow**            Number of rows to read from input files.  Default is -1 (all rows). 
 
-  Details:
+#### Details
 
-  Subject id data is added as the first column of the data frame
-  with column name 'subject'
+Activity is added to the first column of the provided data frame with column name 'activity'.  The activities are converted to categories (factors).  
 
-
-#  addActivityData 
-
-  Adds the training activities for each subject from both the 
-  training and test groups.
-  
-  Arguments: 
-
-     fname_train     Training set of activities, e.g. "y_train.txt"
- 
-     fname_test      Test set of activities, e.g., "y_test.txt"
-
-     fname_activity  Activity labels that map from an acitivity id (1, 2, 3,...)
-                     to a meaningful label (WALKING, WALKING_UPSTAIRS)
-
-     dataFrame       data frame in which to add activity information
-
-     nrow            number of rows to read from input files
-
-  Returns:  original data frame with activity data added as first column
-
-  Details:
-
-  Activity is added to the first column of the provided data frame
-  with column name 'activity'.  The activities are converted to categories
-  (factors).  
-
-
-
-#  addColumnNames 
+####  addColumnNames 
 
   Sets the column names for all the features in the data frame.
   
@@ -259,4 +244,3 @@ Removes the following characters:
 # unitTest2
 
  Unit test of scripts looking at all data. 
-
