@@ -23,7 +23,7 @@
 >`tidyColumnNames(colNames)`
 
 #### Arguments 
-**colNames**	  a vector of character strings
+**colNames** - A vector of character strings
 
 #### Details 
 Removes the following characters:
@@ -32,7 +32,7 @@ Removes the following characters:
 ###  getActivityLabels
 
 #### Data Output
-``getActivityLabels` reads the activity labels from a file and returns as a data frame of activities. 
+`getActivityLabels` reads the activity labels from a file and returns as a data frame of activities. 
 
 ```
 1 WALKING
@@ -46,7 +46,7 @@ Removes the following characters:
 >`getActivityLabels(fname)`
 
 #### Arguments
-**fname**   name of file to read with activity labels, e.g. `activity_labels.txt`
+**fname** - Name of file to read with activity labels, e.g. `activity_labels.txt`
 
 ### extractColumns
 
@@ -57,17 +57,17 @@ Removes the following characters:
 >`extractColumns(searchString, dataFrame)`
 >`extractColumns(searchString = "mean", dataFrame)`
   
-#### Arguments: 
-**searchString**  string defining search criteria identifying columns to return, e.g., "[mean()|std()]"
+#### Arguments 
+**searchString** - String defining search criteria identifying columns to return, e.g., "[mean()|std()]"
 
-**dataFrame**      data frame in which to extract columns
+**dataFrame** - Data frame in which to extract columns
 
 #### Details
 Format for regex is perl. 
 
-
 ### addSubjectData 
 
+#### Data Output 
 `addSubjectData` adds the subject information from both the train and test groups in a returned data frame.  Returns original data frame with subject data added as first column.
   
 #### Usage
@@ -75,17 +75,21 @@ Format for regex is perl.
 >`addSubjectData(fname_train, fname_test, dataFrame)`
   
 #### Arguments
-**nrow**            Number of rows to read from input files. Default is -1 (all rows). 
+**nrow** - Number of rows to read from input files. Default is -1 (all rows). 
 
 #### Details
 Subject id data is added as the first column of the data frame with column name 'subject'
 
 ### addActivityData 
 
-#### Usage
+#### Data Output 
 `addActivityData` adds the training activities for each subject from both the 
 training and test groups. Returns the original data frame with activity data added as first column.
-  
+
+#### Usage
+> `addActivityData(fname_train, fname_test, fname_activity, dataFrame, nrow = 20)`
+> `addActivityData(fname_train, fname_test, fname_activity, dataFrame)
+
 #### Arguments
 **fname_train**     Training set of activities, e.g. "y_train.txt"
  
@@ -98,71 +102,59 @@ training and test groups. Returns the original data frame with activity data add
 **nrow**            Number of rows to read from input files.  Default is -1 (all rows). 
 
 #### Details
-
 Activity is added to the first column of the provided data frame with column name 'activity'.  The activities are converted to categories (factors).  
 
-####  addColumnNames 
+### addColumnNames 
 
-  Sets the column names for all the features in the data frame.
+#### Data Output 
+`addColumnNames` sets the column names for all the features in the data frame. Returns the original data frame with column names set base on information in the features file. 
+
+#### Usage
+>`addColumnNames(fname, dataFrame)`
+
+#### Arguments
+
+**fname** - List of features in which assign the column names, e.g., "features.txt"
+
+**dataFrame** - Data frame in which to assign column names
+
+#### Details
+
+Assumes that the data frame is the raw data, such that 1st column in the  data frame corresponds to the first feature.  The column names should be set before adding any other columns to the data frame. 
+
+###  buildAveFeatureDataFrame 
+
+#### Data Output 
+`buildAveFeatureDataFrame` builds a data frame that summarizes the mean features for each individual based on activity. Returns a new data frame with features means grouped by individual and activity. 
   
-  Arguments: 
+#### Usage
+>`buildAveFeatureDataFrame(dataFrame)`
 
-     fname        List of features in which assign the column names, 
-                  e.g., "features.txt"
+#### Arguments
 
-     dataFrame    data frame in which to assign column names
+**dataFrame** - Data frame in which to summarize the features means 
 
-  Returns:  original data frame with column names set base on information 
-            in the features file 
+#### Details
+The column name for the features are modified by adding 'm' to the beginning of the column (feature), indicating mean. 
 
-  Details:
+###  getData 
 
-  Assumes that the data frame is the raw data, such that 1st column in the
-  data frame corresponds to the first feature.  The column names should
-  be set before adding any other columns to the data frame. 
+#### Data Output 
+`getData` retrieves the training data and testing data as a data frame, appending the test data after the train data. 
 
-#  buildAveFeatureDataFrame 
+#### Usage
+>`getData(fname_train, fname_test, nrow = 20)`
+>`getData(fname_train, fname_test)`
 
-  Builds a data frame that summarizes the mean features for each individual 
-  based on activity.  
-  
-  Arguments: 
+#### Arguments 
 
-     dataFrame    data frame in which to summarize the features means 
-
-  Returns:  a new data frame with features means grouped by individual
-            and activity. 
-
-  Details:
-
-  The column name for the features are modified by adding 'm' to the 
-  beginning of the column (feature), indicating mean. 
-
-
-
-#  getData 
-
-  Data Output 
-
-  Gets the training data and testing data as a data frame, 
-  appending the test data after the train data. 
-
-  Usage
-  
-     getData(f1, f2, nrow = 20)
-	 getData(f1, f2)
-  
-  Arguments 
-
-     fname_train     Training file data
+**fname_train** - Training file data
  
-     fname_test      Test file data  
+**fname_test** - Test file data  
 
-     nrow            number of rows to read from input files
+**nrow** - Number of rows to read from input files. Default is -1 (all rows).
 
-
-
-#  readData 
+### readData 
 
   Reads a text file of data and returns the result as a data frame. 
   
