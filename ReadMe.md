@@ -3,9 +3,9 @@
   Author:  Lawrence Brown
   Date:    11 Oct 2020
 
-  Scripts for processing data from: 
-    Human Activity Recognition Using Smartphones Dataset
-    Version 1.0
+  Scripts for processing data from:
+  Human Activity Recognition Using Smartphones Dataset
+  Version 1.0
 
   Source data for the scripts:
   https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
@@ -55,6 +55,7 @@ Removes the following characters:
 
 #### Usage
 >`extractColumns(searchString, dataFrame)`
+
 >`extractColumns(searchString = "mean", dataFrame)`
   
 #### Arguments 
@@ -88,7 +89,7 @@ training and test groups. Returns the original data frame with activity data add
 
 #### Usage
 > `addActivityData(fname_train, fname_test, fname_activity, dataFrame, nrow = 20)`
-> `addActivityData(fname_train, fname_test, fname_activity, dataFrame)
+> `addActivityData(fname_train, fname_test, fname_activity, dataFrame)`
 
 #### Arguments
 **fname_train**     Training set of activities, e.g. "y_train.txt"
@@ -124,7 +125,7 @@ Assumes that the data frame is the raw data, such that 1st column in the  data f
 
 ###  buildAveFeatureDataFrame 
 
-#### Data Output 
+#### Data Output
 `buildAveFeatureDataFrame` builds a data frame that summarizes the mean features for each individual based on activity. Returns a new data frame with features means grouped by individual and activity. 
   
 #### Usage
@@ -144,10 +145,10 @@ The column name for the features are modified by adding 'm' to the beginning of 
 
 #### Usage
 >`getData(fname_train, fname_test, nrow = 20)`
+
 >`getData(fname_train, fname_test)`
 
 #### Arguments 
-
 **fname_train** - Training file data
  
 **fname_test** - Test file data  
@@ -156,83 +157,81 @@ The column name for the features are modified by adding 'm' to the beginning of 
 
 ### readData 
 
-  Reads a text file of data and returns the result as a data frame. 
-  
-  Arguments: 
+#### Data Output 
+`readData`  Reads a text file of data and returns the result as a data frame. 
 
-     fname     Text file to read
+#### Usage
+>`readData(fname, header = TRUE, nrow = 20)`
+>`readData(fname)`
+
+#### Arguments
+**fname** - Text file to read
  
-     header    Boolean whether the file has header row 
+**header** - Boolean whether the file has header row.  Default is FALSE. 
 
-     nrow      number of rows to read from input file
+**nrow** - Nnumber of rows to read from input file. Default is -1 (all rows).
 
-  Returns:  the data from the file as a data frame
+###  writeDataFrame 
 
-#  writeDataFrame 
+#### Data Output
+`writeData`  Writes a data frame to an output file as text. 
 
-  Writes a data frame to an output file as text 
-  
-  Arguments: 
+#### Usage
+>`writeData(df, fname)` 
 
-     df        Data frame to write to file
+#### Arguments
 
-     fname     Name of the file to write
+**df** - Data frame to write to file
+
+**fname** - Name of the file to write
  
-     header    Boolean whether the file has header row 
+#### Details
+The data is written comma separated.  Column names are written to the file, but not row names.
 
-  Details:
+####  buildDataFrame 
 
-  The data is written comma separated.  Column names are written to the 
-  file, but not row names. 
+#### Data Output
+`buildDataFrame`  Creates a tidy data (data frame) from the Human Activity Recognition Using Smartphones Dataset
 
+#### Usage
+```
+>buildDataFrame(fname_colnames, fname_activityLabels, fname_train, fname_test, fname_trainActivity, >               fname_testActivity, fname_trainSubject, fname_testSubject, 
+>               strexp = "mean", nrow=20) 
+>buildDataFrame(fname_colnames, fname_activityLabels, fname_train, fname_test, fname_trainActivity, >               fname_testActivity, fname_trainSubject, fname_testSubject)
+```
 
-#  buildDataFrame 
+#### Arguments 
+**fname_colnames** - List of features in which assign the column names, e.g., "features.txt"
 
-  Creates a tidy data (data frame) from the 
-  Human Activity Recognition Using Smartphones Dataset 
-  
-  Arguments: 
+**fname_activityLabels** - Activity labels that map from an acitivity id (1, 2, 3,...) to a meaningful label (WALKING, WALKING_UPSTAIRS)
 
-     fname_colnames         List of features in which assign the column names, 
-                            e.g., "features.txt"
-
-     fname_activityLabels   Activity labels that map from an acitivity id (1, 2, 3,...)
-                            to a meaningful label (WALKING, WALKING_UPSTAIRS)
-
-     fname_train            Training set of activities, e.g. "X_train.txt"
+**fname_train** - Training set of activities, e.g. "X_train.txt"
  
-     fname_test             Test set of activities, e.g., "X_test.txt"
+**fname_test** - Test set of activities, e.g., "X_test.txt"
 
-     fname_trainActivity    Training set of activity ids, e.g., "y_train.txt".
+**fname_trainActivity** - Training set of activity ids, e.g., "y_train.txt".
 
-     fname_testActivity     Training set of activity ids, e.g., "y_test.txt".
+**fname_testActivity** - Training set of activity ids, e.g., "y_test.txt".
  
-     fname_trainSubject     Training set of subject ids, e.g. "subject_train.txt"
+**fname_trainSubject** - Training set of subject ids, e.g. "subject_train.txt"
 
-     fname_testSubject      Test set of subject ids, e.g. "subject_test.txt"
+**fname_testSubject** - Test set of subject ids, e.g. "subject_test.txt"
 
-     strexp                 String filter for features (columns to keep)
-                            Default value is "mean\\(\\)|std\\(\\)"
+**strexp** - String filter for features (columns to keep). Default value is "mean\\(\\)|std\\(\\)"
 
-     rnow                   The number of rows to process from the Smartphones Dataset.
-                            Default is -1, all rows.  
+**rnow** - The number of rows to process from the Smartphones Dataset. Default is -1, all rows.  
 
-  Returns:  data frame of tidy data from Smartphones Dataset
+**Details**
+Merges the training and the test sets to create one data set.
+Appropriately labels the data set with descriptive variable names for columns.
+Extracts only the measurements on the mean and standard deviation for each measurement.
+Adds subject information to the data set. 
+Adds activity information for each subject to the data set.  
 
-  Details:
+### unitTest
 
-    Merges the training and the test sets to create one data set.
-    Appropriately labels the data set with descriptive variable names for columns.
-    Extracts only the measurements on the mean and standard deviation for each measurement.
-    Adds subject information to the data set. 
-    Adds activity information for each subject to the data set.  
+Simple unit test of scripts looking at only 20 rows of Smartphone data. 
 
+### unitTest2
 
-# unitTest
-
- Simple unit test of scripts looking at only 20 rows of data. 
-
-     
-# unitTest2
-
- Unit test of scripts looking at all data. 
+Unit test of scripts looking at all SmartPhone data. 
